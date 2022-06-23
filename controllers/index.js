@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
 class Controller{
     static home(req,res){
-			const {search,sortDirection} = req.query
+			const {search} = req.query
 			const options = {
 				include: 'Category',
 				order: [['name','ASC']],
