@@ -39,13 +39,28 @@ class Controller {
                 if (user) {
                     const isValidPassword = bcrypt.compareSync(password, user.password)
                     if (isValidPassword) {
+                        req.session.UserId = user.id
+                        req.session.role = user.role
                         return res.redirect('/')
                     } else {
-                        return res.redirect('/login')
+                        const error = "Invalid Input Username or Password"
+                        return res.redirect(`/login?error=${error}`)
                     }
+                } else {
+                    const error = "Invalid Input Username or Password"
+                    return res.redirect(`/login?error=${error}`)
                 }
             })
             .catch(err => res.send(err))
+    }
+    static getLogout(req, res) {
+        req.session.destroy((err) => {
+            if (err) {
+                res.send(err)
+            } else {
+                res.redirect('/login')
+            }
+        })
     }
 }
 
