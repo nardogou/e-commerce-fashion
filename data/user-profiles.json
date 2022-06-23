@@ -1,0 +1,33 @@
+[
+    {
+      "firstName" : "buzz",
+      "lastName"  :"lightyer",
+      "phoneNumber": "081342784927",
+      "address": "jl.jambu no.19 jakarta selatan"
+    },
+    {
+      "firstName" : "captain",
+      "lastName"  :"ameriqa",
+      "phoneNumber": "081374917293",
+      "address": "jl.semangka no.21 kalimantan utara"
+    },
+    {
+      "firstName" : "andrew",
+      "lastName"  :"garfield",
+      "phoneNumber": "081342731234",
+      "address": "jl.mangga no.19 jakarta barat"
+    },
+    {
+      "firstName" : "thor",
+      "lastName"  :"bazoka",
+      "phoneNumber": "081241123124",
+      "address": "jl.nanas no.12 jakarta utara"
+    },
+    {
+      "firstName" : "harry",
+      "lastName"  :"maguier",
+      "phoneNumber": "087316483912",
+      "address": "jl.naga no.90 sumatra selatan"
+    }
+  
+  ]
