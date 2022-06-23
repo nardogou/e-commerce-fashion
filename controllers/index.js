@@ -1,5 +1,6 @@
 const {Product,Category,User,UserProfile,Order} = require('../models')
 const {Op} = require('sequelize')
+const bcrypt = require('bcryptjs');
 
 class Controller{
     static home(req,res){
