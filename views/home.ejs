@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Report</title>
+</head>
+<body>
+    <h1>Product</h1>
+		<hr>
+			
+		<form action="/reports" method="get">
+			<input type="text" placeholder="Search product.." name="search">
+					<input type="submit" value="SEARCH">
+		</form>
+		<br> 
+		<table border="2">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Description</th>
+					<th>Price</th>
+					<th>Stock</th>
+					<th>Image</th>
+					
+				</tr>
+			</thead> 
+			<tbody>
+				<% products.forEach(el=>{ %>
+					<tr>
+						<td><%= el.name %></td>
+						<td><%= el.description %></td>
+						<td><%= el.price %></td>
+						<td><%= el.stock %></td>
+						<!-- <td> <img src="<%= el.image %>" alt=""></td> -->
+		
+					 </tr>
+			<%	}) %>
+			</tbody>
+		</table>
+		<br>
+		
+</body>
+</html>
