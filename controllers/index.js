@@ -12,6 +12,21 @@ class Controller{
 				res.send(err)
 			})
     }
+		static register(req,res){
+			res.render('register')
+		}
+
+		static postRegister(req,res){
+			
+		}
+
+		static login(req,res){
+			res.render('login')
+		}
+
+		
+
+
 		
 }
 
