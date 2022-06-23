@@ -1,0 +1,35 @@
+[
+  {
+    "name" : "Kaos Pria",
+    "description" : "kaos pria dengan bahan nyaman dan gaya klasik",
+    "price" : 100000,
+    "stock" : 2,
+    "image" : "https://img.freepik.com/free-psd/isolated-white-t-shirt-front-view_125540-1194.jpg?t=st=1655970018~exp=1655970618~hmac=b35c20a4acb0532a138d1fa2902cc5141a6f0eb8e4cc2dc5ca1dfbb9a7bf8b3e&w=1480",
+    "CategoryId": 1 
+  },
+  {
+    "name" : "Celana Pendek",
+    "description" : "Celana pendek dengan bahan yang nyaman dan gaya modern",
+    "price" : 85000,
+    "stock" : 3,
+    "image" : "https://img.freepik.com/free-photo/casual-men-short-pants_1203-8186.jpg?t=st=1655973677~exp=1655974277~hmac=ffd7f19574a042f0d9063ce50e9a025285c7382767ae5fb834ceee620b53a856&w=1060",
+    "CategoryId": 2
+  },
+  {
+    "name" : "Gelang Lucu",
+    "description" : "Gelang lucu berwarna warni dengan design yang lucu",
+    "price" : 50000,
+    "stock" : 2,
+    "image" : "https://img.freepik.com/free-photo/jewellery-bangle-background-with-place-text-banner-fashion-accessories_460848-13246.jpg?t=st=1655972175~exp=1655972775~hmac=3132ac2165d951df7942b7aa5fcb0ca107431d8b0682f774b22c1b5d5181a69a&w=1380",
+    "CategoryId": 3 
+  },
+  {
+    "name" : "Parfum Menggoda",
+    "description" : "parfum dengan aroma yang khas , membuat lawan jenis terpikat dengan erat",
+    "price" : 200000,
+    "stock" : 4,
+    "image" : "https://img.freepik.com/free-psd/perfume-bottle-with-box-mockup_358694-1168.jpg?t=st=1655973894~exp=1655974494~hmac=fc88819efbee1e4be592082487a8c32d681667c72ba74e332696d421dc95c2b3&w=1480",
+    "CategoryId": 4
+  }
+
+] 

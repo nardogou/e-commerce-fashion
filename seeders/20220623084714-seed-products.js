@@ -1,6 +1,5 @@
 'use strict';
 const fs = require('fs')
-
 module.exports = {
    up (queryInterface, Sequelize) {
     /**
@@ -12,12 +11,12 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-     const data = JSON.parse(fs.readFileSync('./data/categories.json','utf-8'))
+     const data = JSON.parse(fs.readFileSync('./data/products.json','utf-8'))
      .map(el=>{
       el.createdAt = el.updatedAt = new Date()
       return el
      })
-     return queryInterface.bulkInsert('Categories',data)
+     return queryInterface.bulkInsert('Products',data)
 
   },
 
@@ -28,6 +27,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    return queryInterface.bulkDelete('Categories')
+    return queryInterface.bulkDelete('Products')
   }
 };
