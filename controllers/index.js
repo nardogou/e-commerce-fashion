@@ -84,6 +84,9 @@ class Controller{
 			})
 		}
 		
+		static checkoutProduct(req,res){
+			res.send('ok')
+		}
 
 
 		
