@@ -19,13 +19,47 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Product.init({
-    name: DataTypes.STRING,
-    description: DataTypes.TEXT,
-    price: DataTypes.INTEGER,
-    stock: DataTypes.INTEGER,
-    image: DataTypes.STRING,
+    name: { 
+      type: DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notEmpty: {msg: 'Masukkan name'}
+      }
+    },
+    description: { 
+      type: DataTypes.TEXT,
+      allowNull:false,
+      validate:{
+        notEmpty: {msg: 'Masukkan Description'},
+        len: {args: [6, 12], msg: 'Panjang password harus 8-12 karakter'}
+      }
+    },
+    price: { 
+      type: DataTypes.INTEGER,
+      allowNull:false,
+      validate:{
+        notEmpty: {msg: 'Masukkan Price'},
+        isInt: {msg: 'Harus Integer'}
+      }
+    },
+    stock: { 
+      type: DataTypes.INTEGER,
+      allowNull:false,
+      validate:{
+        notEmpty: {msg: 'Masukkan Stock'},
+        isInt: {msg: 'Harus Integer'}
+      }
+    },
+    image: { 
+      type: DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        notEmpty: {msg: 'Masukkan Image'}
+      }
+    },
     CategoryId : DataTypes.INTEGER
-  }, {
+  }
+, {
     sequelize,
     modelName: 'Product',
   });

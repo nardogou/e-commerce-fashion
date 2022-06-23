@@ -4,12 +4,27 @@ const router = express.Router();
 
 router.get("/", Controller.home);
 router.get("/login", Controller.login);
+router.post('/login', Controller.postLogin)
+router.get('/logout',Controller.getLogout)
 router.get("/register", Controller.register);
 router.post("/register", Controller.postRegister);
 router.get("/add",Controller.addProduct)
 router.post("/add",Controller.saveProduct)
 router.get("/products/:id/detail",Controller.detailProduct)
+
+
 router.get("/products/:productId/order",Controller.checkoutProduct)
+
+router.use((req, res, next) => {
+    console.log(req.session)
+    console.log(req.session.role)
+    const error = "Invalid"
+    if(!req.session.UserId){
+        res.redirect(`/login?error=${error}`)    
+    }else{
+        next()
+    }
+})
 
 
 module.exports = router;

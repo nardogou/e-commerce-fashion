@@ -51,6 +51,37 @@ class Controller{
 		static login(req,res){
 			res.render('login')
 		}
+		static postLogin(req, res) {
+      const { username, password } = req.body
+      User.findOne({ where: { username } })
+          .then(user => {
+              if (user) {
+                  const isValidPassword = bcrypt.compareSync(password, user.password)
+                  if (isValidPassword) {
+                      req.session.UserId = user.id
+                      req.session.role = user.role
+                      return res.redirect('/')
+                  } else {
+                      const error = "Invalid Input Username or Password"
+                      return res.redirect(`/login?error=${error}`)
+                  }
+              } else {
+                  const error = "Invalid Input Username or Password"
+                  return res.redirect(`/login?error=${error}`)
+              }
+          })
+          .catch(err => res.send(err))
+  }
+    static getLogout(req, res) {
+        req.session.destroy((err) => {
+            if (err) {
+                res.send(err)
+            } else {
+                res.redirect('/login')
+            }
+        })
+    }
+
 
 		static addProduct(req,res){
 			Category.findAll()

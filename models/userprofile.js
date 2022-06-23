@@ -15,11 +15,41 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   UserProfile.init({
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
-    phoneNumber: DataTypes.STRING,
-    address: DataTypes.STRING,
-    UserId: DataTypes.INTEGER
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        notEmpty: { msg: 'Masukkan Firstname' },
+        is: { args: ["^[a-zA-Z0-9_.-]*$", 'i'], msg: 'Firstname tidak boleh mengandung simbol' }
+      }
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        notEmpty: { msg: 'Masukkan Lastname' },
+        is: { args: ["^[a-zA-Z0-9_.-]*$", 'i'], msg: 'Lastname tidak boleh mengandung simbol' }
+      }
+    },
+    phoneNumber: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        notEmpty: { msg: 'Masukkan Phone Number' },
+        is: { args: ["^[a-zA-Z0-9_.-]*$", 'i'], msg: 'Phone Number tidak boleh mengandung simbol' }
+      }
+    },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        notEmpty: { msg: 'Masukkan Alamat dengan benar' },
+      }
+    }
   }, {
     sequelize,
     modelName: 'UserProfile',
