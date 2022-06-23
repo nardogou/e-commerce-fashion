@@ -12,7 +12,6 @@ router.use((req, res, next) => {
         next()
     }
 })
-
 router.get("/", Controller.home);
 router.get("/login", Controller.login);
 router.post('/login', Controller.postLogin)
@@ -22,6 +21,7 @@ router.post("/register", Controller.postRegister);
 router.get("/add",Controller.addProduct)
 router.post("/add",Controller.saveProduct)
 router.get("/products/:id/detail",Controller.detailProduct)
+
 
 
 router.get("/products/:productId/order",Controller.checkoutProduct)
