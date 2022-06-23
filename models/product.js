@@ -12,10 +12,10 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Product.belongsTo(models.Category)
-      Product.hasOne(models.Order)
+      Product.hasMany(models.Order)
     }
     get priceWithRp(){
-      return 'Rp. ' +this.price
+      return 'Rp. ' + this.price.toLocaleString('id-ID')
     }
   }
   Product.init({

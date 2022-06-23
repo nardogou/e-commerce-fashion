@@ -9,7 +9,7 @@ router.post("/register", Controller.postRegister);
 router.get("/add",Controller.addProduct)
 router.post("/add",Controller.saveProduct)
 router.get("/products/:id/detail",Controller.detailProduct)
-router.get("/products/checkout",Controller.checkoutProduct)
+router.get("/products/:productId/order",Controller.checkoutProduct)
 
 
 module.exports = router;

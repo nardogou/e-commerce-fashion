@@ -1,6 +1,6 @@
-const {Product,Category,User,UserProfile} = require('../models')
+const {Product,Category,User,UserProfile,Order} = require('../models')
 const {Op} = require('sequelize')
-const { resolveInclude } = require('ejs')
+
 class Controller{
     static home(req,res){
 			const {search,sortDirection} = req.query
@@ -85,8 +85,23 @@ class Controller{
 		}
 		
 		static checkoutProduct(req,res){
-			res.render('checkout')
+
+			const {productId} = req.params.query
+      Order.findAll({
+        where: {
+					include:['Product','User'],
+          id:`${productId}`
+        }
+      })
+			.then(orders =>{
+				res.send(orders)
+        // res.render('checkoutOrder',{orders})
+      })
+			.catch(err=>{
+				res.send(err)
+			})
 		}
+		
 
 
 		

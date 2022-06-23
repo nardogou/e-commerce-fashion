@@ -11,20 +11,22 @@
 <body>
 	<form action="/" method="get">
 	<div class="header">
-		<h1>FAHION</h1>
+		<h1 style="background-color: wheat;">FAHION</h1>
+		
 		<div>
 			<div>
-				Sort by
-                
+				<input type="text" placeholder="search" name="search">
+				<input type="submit" value="SEARCH" style="margin-left: 20px;">
 			</div>
+			<a href="/add" class="btn">Add Product</a> 
 			<a href="/login" class="btn">Login</a>
-			<a href="/add" class="btn">Add Product</a>
 		</div>
+		
 	</div>
 
-    <input type="text" placeholder="search" name="search">
-    <input type="submit" value="SEARCH">
+   
 	<div class="content-container">
+		
 			<% products.forEach(el=>{ %>
 			<div class="card">
 				<img src="<%= el.image %>">
