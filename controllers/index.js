@@ -1,10 +1,24 @@
 const {Product,Category,User,UserProfile} = require('../models')
 const {Op} = require('sequelize')
+const { resolveInclude } = require('ejs')
 class Controller{
     static home(req,res){
-			Product.findAll({
-				include: 'Category'
-			})
+			const {search,sortDirection} = req.query
+			const options = {
+				include: 'Category',
+				order: [['name','ASC']],
+				where:{}  
+			}
+			if(search){
+				options.where = {
+					...options.where,
+					name: {
+						[Op.iLike]: `%${search}%`
+					}
+				}
+			}
+		
+			Product.findAll(options)
 			.then(products =>{
 				res.render('home',{products})
 			})
@@ -12,6 +26,7 @@ class Controller{
 				res.send(err)
 			})
     }
+		
 		static register(req,res){
 			res.render('register')
 		}
@@ -19,7 +34,7 @@ class Controller{
 		static postRegister(req,res){
 			const{firstName,lastName,phoneNumber,address,username,email,password}= req.body
 			// const{} = req.body
-			console.log(req.body)
+			// console.log(req.body)
 			User.create({username,email,password})
 					.then((user)=>{
 							// res.redirect('/login')
@@ -37,6 +52,37 @@ class Controller{
 			res.render('login')
 		}
 
+		static addProduct(req,res){
+			Category.findAll()
+			.then(categories =>{
+				res.render('addProduct',{categories})
+			})
+		}
+		static saveProduct(req,res){
+			const{name,description,price,stock,image,CategoryId} = req.body
+			Product.create({name,description,price,stock,image,CategoryId})
+			.then(result=>{
+				res.redirect('/')
+			})
+			.catch(err=>{
+				res.send(err)
+			})
+		}
+
+		static detailProduct(req,res){
+			const {id} = req.params
+      Product.findOne({
+        where: {
+          id:`${id}`
+        }
+      })
+			.then(products =>{
+        res.render('detailProduct',{products})
+      })
+			.catch(err=>{
+				res.send(err)
+			})
+		}
 		
 
 

@@ -9,18 +9,21 @@
     <link rel="stylesheet" href="./styles/home.css">
 </head>
 <body>
-	
+	<form action="/" method="get">
 	<div class="header">
 		<h1>FAHION</h1>
 		<div>
 			<div>
 				Sort by
-				<a href="#">Title</a>
-				<a href="#">Price</a>
+                
 			</div>
 			<a href="/login" class="btn">Login</a>
+			<a href="/add" class="btn">Add Product</a>
 		</div>
 	</div>
+
+    <input type="text" placeholder="search" name="search">
+    <input type="submit" value="SEARCH">
 	<div class="content-container">
 			<% products.forEach(el=>{ %>
 			<div class="card">
@@ -30,11 +33,11 @@
 				</div>
 				<h3><%= el.priceWithRp %></h3>
 				<h4><%= el.Category.name%></h4>
-				<a class="btn btn-delete" href="#">Delete</a>
+				<a class="btn btn-delete" href="/products/<%= el.id %>/detail">Detail Product</a>
 			</div>
 			<%	}) %>
-			
     </div>
+</form>
 	</body>
 	</html>
 	<style>
