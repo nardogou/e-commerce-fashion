@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require("express"); 
 const Controller = require("../controllers/index");
 const router = express.Router();
 router.get("/register", Controller.register);
@@ -7,6 +7,7 @@ router.post("/register", Controller.postRegister);
 router.get("/login", Controller.login);
 router.post('/login', Controller.postLogin)
 router.get('/logout',Controller.getLogout)
+
 router.use((req, res, next) => {
     console.log(req.session)
     console.log(req.session.role)

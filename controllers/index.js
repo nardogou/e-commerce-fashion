@@ -119,6 +119,7 @@ class Controller{
 		static checkoutProduct(req,res){
 
 			const {productId} = req.params.query
+			console.log(req.session.UserId)
       Order.findAll({
         where: {
 					include:['Product','User'],
