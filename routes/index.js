@@ -7,9 +7,9 @@ router.post("/register", Controller.postRegister);
 
 router.get("/login", Controller.login);
 router.post('/login', Controller.postLogin)
+
 router.get('/logout',Controller.getLogout)
 
-router.get("/", Controller.home);
 router.use((req, res, next) => {
     // console.log(req.session)
     // console.log(req.session.role)
@@ -20,8 +20,7 @@ router.use((req, res, next) => {
         next()
     }
 })
-
-
+router.get("/", Controller.home);
 
 router.get("/add",Controller.addProduct)
 router.post("/add",Controller.saveProduct)

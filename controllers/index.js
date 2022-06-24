@@ -63,8 +63,8 @@ class Controller {
 
 						req.session.UserId = user.id
 						req.session.role = user.role
-						// console.log(req.session)
-						// console.log(user)
+						console.log(req.session)
+						console.log(user)
 						return res.redirect('/')
 
 					} else {
