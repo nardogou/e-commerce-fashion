@@ -1,7 +1,7 @@
 const { Product, Category, User, UserProfile, Order } = require('../models')
 const { Op } = require('sequelize')
 const bcrypt = require('bcryptjs');
-const session = require('express-session');
+
 
 class Controller {
 	static home(req, res) {
@@ -122,9 +122,7 @@ class Controller {
 	}
 
 	static checkoutProduct(req, res) {
-
-		const { productId } = req.params.query
-		// console.log(req.session.UserId)
+		const { productId } = req.params
 		Order.findAll({
 			where: {
 				include: ['Product', 'User'],

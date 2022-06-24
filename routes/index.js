@@ -28,6 +28,7 @@ router.get("/products/:id/detail",Controller.detailProduct)
 
 
 
+
 router.get("/products/:productId/order",Controller.checkoutProduct)
 
 
