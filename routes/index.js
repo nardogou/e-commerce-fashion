@@ -1,6 +1,7 @@
 const express = require("express"); 
 const Controller = require("../controllers/index");
 const router = express.Router();
+
 router.get("/register", Controller.register);
 router.post("/register", Controller.postRegister);
 
@@ -8,9 +9,10 @@ router.get("/login", Controller.login);
 router.post('/login', Controller.postLogin)
 router.get('/logout',Controller.getLogout)
 
+router.get("/", Controller.home);
 router.use((req, res, next) => {
-    console.log(req.session)
-    console.log(req.session.role)
+    // console.log(req.session)
+    // console.log(req.session.role)
     const error = "Invalid"
     if(!req.session.UserId){
         res.redirect(`/login?error=${error}`)    
@@ -18,7 +20,6 @@ router.use((req, res, next) => {
         next()
     }
 })
-router.get("/", Controller.home);
 
 
 
