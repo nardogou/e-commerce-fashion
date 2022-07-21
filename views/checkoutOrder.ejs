@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checko</title>
+</head>
+<body>
+    <h1>DETAIL PRODUCT</h1>
+    <hr>
+		<br>
+    <table border="4">
+			<thead>
+				<tr>
+					<th>No Transaksi</th>
+					<th>Name Product</th>
+					<th>Jumlah</th>
+					<th>Harga</th>
+					<th>Alamat</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<img src="<%= products.image %>" alt="">
+					</td>
+					<td><%= products.name %></td>
+					<td><%= products.price %></td>
+					<td><%= products.stock %></td>
+					<td><%= products.description %></td>
+					<td><a class="btn btn-detail" href="/products/<%=products.id%>/order">Checkout</a></td>
+				 </tr>	
+				 
+			</tbody>
+		</table>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Collection</title>
+    <link rel="stylesheet" href="./styles/home.css">
+</head>
+<body>
+	<form action="/" method="get">
+	<div class="header">
+		<h1 style="background-color: wheat;">FAHION</h1>
+		
+		<div>
+			<div>
+				<input type="text" placeholder="search" name="search">
+				<input type="submit" value="SEARCH" style="margin-left: 20px;">
+			</div>
+			<a href="/add" class="btn">Add Product</a> 
+			<a href="/logout" class="btn">Logout</a>
+		</div>
+		
+	</div>
+
+   
+	<div class="content-container">
+		
+			<% products.forEach(el=>{ %>
+			<div class="card">
+				<img src="<%= el.image %>">
+				<div>
+					<h3><%= el.name %></h3>
+				</div>
+				<h3><%= el.priceWithRp %></h3>
+				<h4><%= el.Category.name%></h4>
+				<a class="btn btn-detail" href="/products/<%= el.id %>/detail">Detail Product</a>
+			</div>
+			<%	}) %>
+    </div>
+</form>
+	</body>
+	</html>
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+}
+
+.header {
+    width: 90vw;
+    margin: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header div {
+    display: inline-flex;
+    align-items: center;
+}
+
+a {
+    margin: 5px;
+}
+
+.content-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 25px;
+}
+
+.card {
+    padding: 10px;
+    width: 20vw;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+}
+
+.card div {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card img {
+    margin: 0 auto;
+    width: 200px;
+    height: 160px;
+    object-fit: contain;
+}
+
+.card h4 {
+    color: grey;
+    text-align: center;
+}
+
+.btn {
+    margin: 0 20px;
+    padding: 5px 0;
+    width: 80px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    background-color: #fba608;
+    color: #000000;
+}
+
+.btn-detail {
+    color: white;
+    background-color: rgb(243, 56, 56);
+}
+</style>
